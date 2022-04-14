@@ -1,15 +1,20 @@
 # Projeto DevOps IoC - Terraform
 
-Trabalho final do curso Devops
+Trabalho final de Devops
 
-Esse projeto cria uma instancia EC2 e um Bucket S3 na AWS.
+Criação de recursos AWS através de código com Terraform.<br/>
+Esse projeto cria uma instâcia EC2, um Bucket S3 e um security group para liberar o acesso SSH na instância criada.
 
-para rodar precisa estar instalado:
+para rodar precisa ter instalado:
 
 * [cliente terraform](https://www.terraform.io/)
 * [AWS CLI](https://aws.amazon.com/cli/)
 
 precisa ter uma conta na AWS com usuario configurado no AWS-CLI na região us-east-2:
-1. ver a lista de perfis configurados no cliente AWS <code>aws configure list-profiles</code>. Por padrão o perfil é <code>default</code>
-2. Para adicionar um novo perfil, primeiro terá que [gerar](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) uma <code>access_key_id</code> e uma senha <code>secret_access_key</code>
-3. Os perfis são armazenados no arquivo de configuração e credenciais. Podemos adicionar um perfil editando o arquivo<pre><code>$ vim ~/.aws/config<p><br/>[default]</p><p>region=us-west-2
+* [configurando perfil AWS cli](https://dev.to/hmintoh/how-to-use-multiple-aws-accounts-with-the-aws-cli-3lge)
+
+precisa configurar o key-pair para a região escolhida(us-east-2), colocar as chaves na raiz do projeto e alterar o arquivo 'variables.tf' atribuindo o nome da chave criada na AWS a variável key-name.<br/><br/>
+Comandos  para executar na raiz do projeto:
+1. Iniciar projeto terraform e baixar dependencias aws <code>terraform init</code>
+2. Mostrar planejamento do que será executado <code>terraform plan</code>
+3. Aplicar as instruções <code>terraform apply</code>
